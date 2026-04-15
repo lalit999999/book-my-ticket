@@ -4,6 +4,7 @@ import {
     bookSeat,
     getSeatById,
     releaseSeat,
+    bookSeatAuthenticated,
 } from "../booking/bookingController.js";
 import { authenticate } from "../middleware/auth.js";
 
