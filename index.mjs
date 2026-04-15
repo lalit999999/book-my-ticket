@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 
 // Import routes
 import authRoutes from "./src/routes/auth.js";
+import bookingRoutes from "./src/routes/booking.js";
 
 // Load environment variables
 dotenv.config();
@@ -38,6 +39,13 @@ app.use(express.urlencoded({ extended: true })); // Parse form data
 
 // Authentication routes (public and protected)
 app.use("/api/auth", authRoutes);
+
+// Booking routes (using new modular structure)
+// GET /api/booking/seats
+// GET /api/booking/seats/:id
+// PUT /api/booking/:id/:name
+// DELETE /api/booking/:id (protected)
+app.use("/api/booking", bookingRoutes);
 
 // Static files
 app.get("/", (req, res) => {
@@ -148,12 +156,19 @@ app.listen(port, () => {
   console.log(`🚀 Server starting on port: ${port}`);
   console.log("========================================");
   console.log("\n📚 Available Routes:");
-  console.log("  POST   /api/auth/login");
-  console.log("  POST   /api/auth/register");
-  console.log("  GET    /api/auth/profile (protected)");
-  console.log("  POST   /api/auth/change-password (protected)");
-  console.log("  GET    /seats");
-  console.log("  PUT    /:id/:name (book seat)");
+  console.log("\n  Authentication (MySQL):");
+  console.log("    POST   /api/auth/login");
+  console.log("    POST   /api/auth/register");
+  console.log("    GET    /api/auth/profile (protected)");
+  console.log("    POST   /api/auth/change-password (protected)");
+  console.log("\n  Booking - LEGACY ENDPOINTS:");
+  console.log("    GET    /seats");
+  console.log("    PUT    /:id/:name (book seat)");
+  console.log("\n  Booking - NEW MODULAR ENDPOINTS (Recommended):");
+  console.log("    GET    /api/booking/seats");
+  console.log("    GET    /api/booking/seats/:id");
+  console.log("    PUT    /api/booking/:id/:name (book seat)");
+  console.log("    DELETE /api/booking/:id (release booking, protected)");
   console.log("\n📖 API Documentation:");
   console.log("  http://localhost:" + port);
   console.log("========================================\n");
