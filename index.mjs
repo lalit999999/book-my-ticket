@@ -1,32 +1,33 @@
+import dotenv from "dotenv";
+
+// Load environment variables FIRST before any other imports
+dotenv.config();
+
 import express from "express";
-import pg from "pg";
+// import pg from "pg"; // PostgreSQL - COMMENTED OUT, using MySQL instead
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import cors from "cors";
-import dotenv from "dotenv";
 
 // Import routes
 import authRoutes from "./src/routes/auth.js";
 import bookingRoutes from "./src/routes/booking.js";
 
-// Load environment variables
-dotenv.config();
-
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const port = process.env.PORT || 8080;
 
-// PostgreSQL connection pool (for existing booking system)
-const pool = new pg.Pool({
-  host: "localhost",
-  port: 5433,
-  user: "postgres",
-  password: "postgres",
-  database: "sql_class_2_db",
-  max: 20,
-  connectionTimeoutMillis: 0,
-  idleTimeoutMillis: 0,
-});
+// PostgreSQL connection pool - COMMENTED OUT, using MySQL instead
+// const pool = new pg.Pool({
+//   host: "localhost",
+//   port: 5433,
+//   user: "postgres",
+//   password: "postgres",
+//   database: "sql_class_2_db",
+//   max: 20,
+//   connectionTimeoutMillis: 0,
+//   idleTimeoutMillis: 0,
+// });
 
 const app = new express();
 
@@ -52,6 +53,9 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
+// ==================== LEGACY POSTGRESQL ENDPOINTS - COMMENTED OUT ====================
+// Using MySQL with /api/auth and /api/booking routes instead
+/*
 // Booking system endpoints (PostgreSQL)
 // Get all seats
 app.get("/seats", async (req, res) => {
@@ -128,6 +132,7 @@ app.put("/:id/:name", async (req, res) => {
     conn.release();
   }
 });
+*/
 
 // ==================== Error Handling ====================
 
