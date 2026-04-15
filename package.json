@@ -1,17 +1,28 @@
 {
   "name": "booking-system",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Movie ticket booking system with authentication",
+  "main": "index.mjs",
+  "type": "module",
   "scripts": {
+    "start": "node index.mjs",
+    "dev": "node --watch index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "booking",
+    "authentication",
+    "jwt"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.6",
     "express": "^5.2.1",
-    "pg": "^8.20.0"
+    "jsonwebtoken": "^9.1.2",
+    "mysql2": "^3.6.5",
+    "pg": "^8.20.0",
+    "dotenv": "^16.3.1"
   }
 }

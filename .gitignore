@@ -1,0 +1,74 @@
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+.env.test
+config/.env
+
+# Node Modules
+node_modules/
+npm-debug.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# Build & Distribution
+build/
+dist/
+out/
+
+# Logs
+logs/
+*.log
+lerna-debug.log*
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+dumped_data/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary Files
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Testing
+coverage/
+.nyc_output/
+
+# Private Keys
+*.pem
+*.key
+*.crt
+*.ssl
+
+# Session Files
+session/
+sessions/
+
+# Production Build Artifacts
+.next/
+.nuxt/
+dist/
+build/
