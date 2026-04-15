@@ -1,9 +1,9 @@
 import express from "express";
 import {
-  getAllSeats,
-  bookSeat,
-  getSeatById,
-  releaseSeat,
+    getAllSeats,
+    bookSeat,
+    getSeatById,
+    releaseSeat,
 } from "../booking/bookingController.js";
 import { authenticate } from "../middleware/auth.js";
 
