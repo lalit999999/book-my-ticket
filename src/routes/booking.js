@@ -47,6 +47,20 @@ router.put("/:id/:name", bookSeat);
  */
 
 /**
+ * PUT /api/booking/book/:seatId
+ * Book a seat with user authentication
+ * Requires: Valid JWT token
+ * 
+ * Parameters:
+ *   - seatId: Seat ID (path param)
+ * 
+ * Gets userId from JWT token (req.user.id set by authenticate middleware)
+ * 
+ * Response: { success: true, data: { seatId, userId, bookedAt } }
+ */
+router.put("/book/:seatId", authenticate, bookSeatAuthenticated);
+
+/**
  * DELETE /api/booking/:id
  * Release/cancel a booking for a seat
  * Requires: Valid JWT token
